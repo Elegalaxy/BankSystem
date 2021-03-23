@@ -1,13 +1,13 @@
 #include <iostream>
 #include "Account.h"
 
-Account::totalAcountNumber = 1000;
+int Account::totalAccountNumber = 1000;
 
 Account::Account(){
 
 }
 
-Account::Account(string n, string p, int amt){
+Account::Account(std::string n, std::string p, int amt){
     accountNumber = (++totalAccountNumber);
     name = n;
     password = p;
@@ -15,46 +15,41 @@ Account::Account(string n, string p, int amt){
     if(totalAccountNumber == 9999) totalAccountNumber = 0;
 }
 
-std::string Account::getter(string key){
+std::string Account::getter(std::string key){
 
 }
 
-void Account::setter(string key, string value){
-    switch(key){
-        case "name":
-            name = value;
-            break;
-        case "password":
-            password = value;
-            break;
-        case "amount":
-            amount = value;
-            break;
-
+void Account::setter(std::string key, std::string value){
+    if(key == "name"){
+        name = value;
+    }else if(key == "password"){
+        password = value;
+    }else if(key == "amount"){
+        amount = value;
     }
 }
 
-bool Account::transfer(string fromAccountNumber, string toAccountNumber, int amount){
+bool Account::transfer(std::string fromAccountNumber, std::string toAccountNumber, int amount){
 
 }
 
-bool Account::Loan(string accountNumber, string amount){
+bool Account::Loan(std::string accountNumber, std::string amount){
 
 }
 
 void Account::getTransaction(){
     auto transaction = record->getRecord();
-    if(!transaction.size){
+    if(!transaction.size()){
         std::cout << "Transaction not available!" << std::endl;
         return;
     }
     for(auto year:transaction){
-        for(auto month:year){
-            for(auto day:month){
-                for(auto hour:day){
-                    for(auto minutes:hour){
-                        for(auto sec:minutes){
-                            for(auto trans:sec){
+        for(auto month:year.second){
+            for(auto day:month.second){
+                for(auto hour:day.second){
+                    for(auto minutes:hour.second){
+                        for(auto sec:minutes.second){
+                            for(auto trans:sec.second){
                                 std::cout << trans->getDetail() << std::endl;
                             }
                         }
