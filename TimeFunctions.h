@@ -55,7 +55,19 @@ std::string getDate(){
             std::to_string(getYear()));
 }
 
+std::string getDateRev(){
+    std::time_t t = std::time(0);   // get time now
+    std::tm* now = std::localtime(&t);
+    return (std::to_string(getYear()) + '_' + 
+            std::to_string(getMonth()) + '_' + 
+            std::to_string(getDay()));
+}
+
 std::string getAll(){
     return getTime() + ' ' + getDate();
+}
+
+std::string getAllRev(){
+    return getDateRev() + ' ' + getTime();
 }
 #endif

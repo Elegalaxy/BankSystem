@@ -18,7 +18,7 @@ Class:
 
 {
 Account: (ZK)
-	Name, (string)Amount, Account Number, Password, Transaction date
+	Name, (string)Amount, Account Number, Password, Record
 	string getter(string), void setter(string, value), bool transfer(string fromAccountNumber, string toAccountNumber, int amount)
 	bool Loan(string accountNumber, string amount), string getTransaction()
 
@@ -44,7 +44,8 @@ Cheque: (ZK)
 	bool flag(); string returnCheque();
 
 Transaction: (Tony)
-	string date, string time, string 
+	string time, string fromAccountNumber, string toAccountNumber, string amount
+	string getDetail()
 
 Record: (ZK)
 	map<int, map<int, map<int, map<int, map<int, map<int, vector<Transaction*>>>>>> record;
