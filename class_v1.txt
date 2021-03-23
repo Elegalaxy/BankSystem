@@ -8,6 +8,9 @@ Login System:
 	Employee: Register account, Delete account, Defroze account if permitted by manager
 	Manager: Create employees, Delete employees, Authorize to defroze account
 
+Makefile (Tony)
+main (Tony)
+
 Class:
 	AccountClass: children[Saving, Business, FD]
 	LoginSystemClass: children[Customer, Employee: child[Manager] ]
@@ -17,7 +20,8 @@ Class:
 Account: (ZK)
 	Name, (string)Amount, Account Number, Password, Transaction date
 	string getter(string), void setter(string, value), bool transfer(string fromAccountNumber, string toAccountNumber, int amount)
-	bool Loan(string accountNumber, string amount)
+	bool Loan(string accountNumber, string amount), string getTransaction()
+
 
 Saving:Account (Tony)
 	Debit:Amount;
@@ -38,4 +42,10 @@ Credit: (ME)
 Cheque: (ZK)
 	string date, string amount, Account* from;
 	bool flag(); string returnCheque();
+
+Transaction: (Tony)
+	string date, string time, string 
+
+Record: (ZK)
+	map<int, map<int, map<int, map<int, map<int, map<int, vector<Transaction*>>>>>> record;
 }
