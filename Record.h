@@ -6,10 +6,10 @@
 
 class Record{
     private:
-        std::map<int, std::map<int, std::map<int, std::map<int, std::map<int, std::map<int, std::vector<Transaction*>>>>>> record;
+        std::map<int, std::map<int, std::map<int, std::map<int, std::map<int, std::map<int, std::vector<Transaction*>>>>>>> record;
 
     public:
         Record();
-        std::map<int, std::map<int, std::map<int, std::map<int, std::map<int, std::map<int, std::vector<Transaction*>>>>>> getRecord();
+        std::map<int, std::map<int, std::map<int, std::map<int, std::map<int, std::map<int, std::vector<Transaction*>>>>>>> getRecord();
 };
 #endif

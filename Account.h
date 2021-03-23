@@ -9,17 +9,16 @@ class Account{
     protected:
         std::string name, amount, accountNumber, password;
         Record* record;
-        static totalAccountNumber;
+        static int totalAccountNumber;
 
     public:
         Account();
-        Account(string n, string p, int amt);
-        std::string getter(string item);
-        void setter(string item, string value);
-        bool transfer(string fromAccountNumber, string toAccountNumber, int amount);
-        bool Loan(string accountNumber, string amount);
+        Account(std::string n, std::string p, int amt);
+        std::string getter(std::string item);
+        void setter(std::string item, std::string value);
+        bool transfer(std::string fromAccountNumber, std::string toAccountNumber, int amount);
+        bool Loan(std::string accountNumber, std::string amount);
         void getTransaction();
-        int modifyAmount();
+        int modifyAmount(int value);
 };
-
 #endif
