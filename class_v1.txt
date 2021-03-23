@@ -22,6 +22,7 @@ Account: (ZK)
 	string getter(string), void setter(string, value), bool transfer(string fromAccountNumber, string toAccountNumber, int amount)
 	bool Loan(string accountNumber, string amount), string getTransaction()
 
+
 Saving:Account (Tony)
 	Debit:Amount;
 	Online Payment(); //Visual
