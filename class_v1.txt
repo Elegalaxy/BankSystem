@@ -1,0 +1,50 @@
+Account: 
+	Saving: Loan, Credit Card, Debit Card, Online Payment, Transfer
+	Business: Loan, Transfer, Cheque
+	Fixed Deposit: if break, then 0% interest
+
+Login System:
+	Customer: Manage own account, Check transaction (Map)
+	Employee: Register account, Delete account, Defroze account if permitted by manager
+	Manager: Create employees, Delete employees, Authorize to defroze account
+
+Makefile (Tony)
+main (Tony)
+
+Class:
+	AccountClass: children[Saving, Business, FD]
+	LoginSystemClass: children[Customer, Employee: child[Manager] ]
+	Transaction: 
+
+{
+Account: (ZK)
+	Name, (string)Amount, Account Number, Password, Transaction date
+	string getter(string), void setter(string, value), bool transfer(string fromAccountNumber, string toAccountNumber, int amount)
+	bool Loan(string accountNumber, string amount), string getTransaction()
+
+Saving:Account (Tony)
+	Debit:Amount;
+	Online Payment(); //Visual
+
+Business:Account (Tony)
+	createCheque();
+		
+FixedDeposit: (ME)
+	double interest, int day;
+	bool weekPlan();
+	bool monthPlan();
+
+Credit: (ME)
+	int day, double interest;
+	bool payCredit()+;
+
+Cheque: (ZK)
+	string date, string amount, Account* from;
+	bool flag(); string returnCheque();
+
+Transaction: (Tony)
+	string date, string time, string 
+
+Record: (ZK)
+	map<int, map<int, map<int, map<int, map<int, map<int, vector<Transaction*>>>>>> record;
+}
