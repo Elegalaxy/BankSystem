@@ -1,4 +1,5 @@
 #include "Transaction.h"
+#include "TimeFunctions.h"
 
 Transaction::Transaction(std::string name, std::string amount)
 {
