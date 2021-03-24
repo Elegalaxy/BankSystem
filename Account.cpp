@@ -1,5 +1,7 @@
 #include <iostream>
 #include "Account.h"
+#include "Extra.h"
+#include "Manager.h"
 
 int Account::totalAccountNumber = 1000;
 
@@ -20,7 +22,9 @@ std::string Account::getter(std::string key){
         return name;
     }else if(key == "password"){
         return password;
-    }else if(key == "amount"){
+    }else if("number"){
+		return accountNumber;
+	}else if(key == "amount"){
         return amount;
     }
 	return "";
@@ -36,12 +40,35 @@ void Account::setter(std::string key, std::string value){
     }
 }
 
-bool Account::transfer(std::string fromAccountNumber, std::string toAccountNumber, int amount){
-
+bool Account::transfer(std::vector<Account*>& accounts, std::string fromAccountNumber, std::string toAccountNumber, int amount){
+	Account* from = getAccountByNumber(accounts, fromAccountNumber);
+	Account* to = getAccountByNumber(accounts, toAccountNumber);
+	if(!from || !to){
+		return false;
+	}
+	
+	if(from->getter("amount") < amount){
+		std::cout << "You don't have enough money" << std::endl;
+		return false;
+	}
+	
+	to->modifyAmount(amount);
+	printAmount(from->modifyAmount(-amount));
+	return true;
 }
 
-bool Account::Loan(std::string accountNumber, std::string amount){
-
+bool Account::Loan(Manager* manager, std::vector<Account*>& accounts, std::string accountNumber, std::string amount){
+	Account* to = getAccountByNumber(accounts, toAccountNumber);
+	if(!to){
+		return false;
+	}
+	
+	if(!manager->loanApprove()){
+		return false;
+	}
+	
+	printAmount(to->modifyAmount(amount));
+	return true;
 }
 
 void Account::getTransaction(){
@@ -70,9 +97,20 @@ void Account::getTransaction(){
     }
 }
 
+void Account::printAmount(int a){
+	std::cout << "Current amount: " << a << std::endl;
+}
 
 int Account::modifyAmount(int value){
     int cur = stoi(amount);
     cur+=value;
+	amount = to_string(cur);
+    return cur;
+}
+
+int Account::modifyAmount(string value){
+    int cur = stoi(amount);
+    cur+=stoi(value);
+	amount = to_string(cur);
     return cur;
 }

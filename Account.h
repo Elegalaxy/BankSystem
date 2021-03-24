@@ -5,7 +5,7 @@
 #include <vector>
 #include "Record.h"
 
-class Account{
+class Account{	
     protected:
         std::string name, amount, accountNumber, password;
         Record* record;
@@ -19,6 +19,8 @@ class Account{
         bool transfer(std::string fromAccountNumber, std::string toAccountNumber, int amount);
         bool Loan(std::string accountNumber, std::string amount);
         void getTransaction();
+		void printAmount(int a);
         int modifyAmount(int value);
+        int modifyAmount(string value);
 };
 #endif
