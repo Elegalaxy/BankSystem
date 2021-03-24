@@ -4,6 +4,6 @@ Record::Record(){
 
 }
 
-std::map<int, std::map<int, std::map<int, std::map<int, std::map<int, std::map<int, std::vector<Transaction*>>>>>>> Record::getRecord(){
+std::map<int, std::map<int, std::map<int, std::map<int, std::map<int, std::map<int, std::vector<Transaction* > > > > > > > Record::getRecord(){
     return record;
 }
