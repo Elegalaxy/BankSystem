@@ -16,7 +16,14 @@ Account::Account(std::string n, std::string p, int amt){
 }
 
 std::string Account::getter(std::string key){
-
+	if(key == "name"){
+        return name;
+    }else if(key == "password"){
+        return password;
+    }else if(key == "amount"){
+        return amount;
+    }
+	return "";
 }
 
 void Account::setter(std::string key, std::string value){
