@@ -47,7 +47,7 @@ bool Account::transfer(std::vector<Account*>& accounts, std::string fromAccountN
 		return false;
 	}
 	
-	if(from->getter("amount") < amount){
+	if(stoi(from->getter("amount")) < amount){
 		std::cout << "You don't have enough money" << std::endl;
 		return false;
 	}
@@ -58,7 +58,7 @@ bool Account::transfer(std::vector<Account*>& accounts, std::string fromAccountN
 }
 
 bool Account::Loan(Manager* manager, std::vector<Account*>& accounts, std::string accountNumber, std::string amount){
-	Account* to = getAccountByNumber(accounts, toAccountNumber);
+	Account* to = getAccountByNumber(accounts, accountNumber);
 	if(!to){
 		return false;
 	}
@@ -104,13 +104,13 @@ void Account::printAmount(int a){
 int Account::modifyAmount(int value){
     int cur = stoi(amount);
     cur+=value;
-	amount = to_string(cur);
+	amount = std::to_string(cur);
     return cur;
 }
 
-int Account::modifyAmount(string value){
+int Account::modifyAmount(std::string value){
     int cur = stoi(amount);
     cur+=stoi(value);
-	amount = to_string(cur);
+	amount = std::to_string(cur);
     return cur;
 }
