@@ -16,11 +16,11 @@ class Account{
         Account(std::string n, std::string p, int amt);
         std::string getter(std::string item);
         void setter(std::string item, std::string value);
-        bool transfer(std::string fromAccountNumber, std::string toAccountNumber, int amount);
-        bool Loan(std::string accountNumber, std::string amount);
+        bool transfer(std::vector<Account*>& accounts, std::string fromAccountNumber, std::string toAccountNumber, int amount);
+        bool Loan(Manager* manager, std::vector<Account*>& accounts, std::string accountNumber, std::string amount);
         void getTransaction();
 		void printAmount(int a);
         int modifyAmount(int value);
-        int modifyAmount(string value);
+        int modifyAmount(std::string value);
 };
 #endif
